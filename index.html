@@ -1,0 +1,1953 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jeff Jeremain | Bewerbung LSMD</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#03080d;
+    --bg2:#07151f;
+    --card:rgba(9,24,34,.72);
+    --card2:rgba(13,35,48,.65);
+    --cyan:#54e7ff;
+    --blue:#3685ff;
+    --green:#42e5a2;
+    --red:#ff4e70;
+    --white:#f2fbff;
+    --muted:#8ba6b6;
+    --line:rgba(84,231,255,.15);
+    --shadow:0 30px 100px rgba(0,0,0,.55);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 15% 10%,rgba(45,180,230,.14),transparent 28%),
+        radial-gradient(circle at 90% 30%,rgba(54,100,255,.12),transparent 30%),
+        linear-gradient(135deg,#02070b,#06131c 50%,#02070b);
+    color:var(--white);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.045;
+    z-index:100;
+    background-image:
+        linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);
+    background-size:50px 50px;
+}
+
+/* ================= LOADER ================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#02070b;
+    z-index:9999;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:1s;
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-circle{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    border:2px solid rgba(84,231,255,.12);
+    border-top-color:var(--cyan);
+    border-right-color:var(--blue);
+    animation:spin 1s linear infinite;
+}
+
+.loader-heart{
+    position:absolute;
+    font-size:30px;
+    animation:pulse 1s infinite;
+}
+
+.loader-text{
+    margin-top:25px;
+    color:var(--cyan);
+    font-family:Rajdhani;
+    font-size:14px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.25)}
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:75px;
+    z-index:500;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(3,10,15,.7);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-family:Rajdhani;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--cyan),var(--blue));
+    color:#021018;
+    box-shadow:0 0 30px rgba(84,231,255,.35);
+    font-size:21px;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--cyan);
+}
+
+@media(max-width:800px){
+    .nav-links{
+        display:none;
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 7% 80px;
+    overflow:hidden;
+}
+
+.hero-content{
+    width:min(1250px,100%);
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:70px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+@media(max-width:900px){
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 15px;
+    border:1px solid rgba(66,229,162,.2);
+    background:rgba(66,229,162,.05);
+    border-radius:100px;
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 15px var(--green);
+    animation:blink 1.3s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:.3}
+}
+
+h1{
+    font-family:Rajdhani;
+    font-size:clamp(65px,9vw,125px);
+    line-height:.82;
+    text-transform:uppercase;
+    letter-spacing:-3px;
+    margin-bottom:28px;
+}
+
+h1 span{
+    display:block;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(84,231,255,.75);
+    text-shadow:0 0 35px rgba(84,231,255,.12);
+}
+
+.hero-subtitle{
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.8;
+    max-width:680px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:35px;
+}
+
+.btn{
+    padding:15px 23px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    transition:.35s;
+}
+
+.btn-primary{
+    color:#031017;
+    background:linear-gradient(135deg,var(--cyan),#36a9ff);
+    box-shadow:0 0 35px rgba(84,231,255,.18);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 45px rgba(84,231,255,.3);
+}
+
+.btn-outline{
+    color:var(--white);
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+}
+
+.btn-outline:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+}
+
+/* ================= MEDICAL CORE ================= */
+
+.medical-core{
+    position:relative;
+    width:min(420px,80vw);
+    aspect-ratio:1;
+    margin:auto;
+}
+
+.core-ring{
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(84,231,255,.18);
+    border-radius:50%;
+    animation:rotate 18s linear infinite;
+}
+
+.core-ring:nth-child(2){
+    inset:11%;
+    border-color:rgba(54,133,255,.22);
+    animation-direction:reverse;
+    animation-duration:13s;
+}
+
+.core-ring:nth-child(3){
+    inset:23%;
+    border-color:rgba(66,229,162,.2);
+    animation-duration:9s;
+}
+
+.core-ring:before,
+.core-ring:after{
+    content:"";
+    position:absolute;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 20px var(--cyan);
+}
+
+.core-ring:before{
+    top:-4px;
+    left:50%;
+}
+
+.core-ring:after{
+    bottom:-4px;
+    right:20%;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
+}
+
+.core-center{
+    position:absolute;
+    inset:30%;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:
+        radial-gradient(circle,rgba(84,231,255,.18),rgba(5,17,25,.9) 65%);
+    border:1px solid rgba(84,231,255,.3);
+    box-shadow:
+        0 0 70px rgba(84,231,255,.12),
+        inset 0 0 40px rgba(84,231,255,.08);
+}
+
+.cross{
+    position:relative;
+    width:70px;
+    height:70px;
+}
+
+.cross:before,
+.cross:after{
+    content:"";
+    position:absolute;
+    background:var(--cyan);
+    box-shadow:0 0 20px var(--cyan);
+    border-radius:5px;
+}
+
+.cross:before{
+    width:22px;
+    height:70px;
+    left:24px;
+}
+
+.cross:after{
+    width:70px;
+    height:22px;
+    top:24px;
+}
+
+/* ================= ECG ================= */
+
+.ecg{
+    position:absolute;
+    bottom:25px;
+    left:0;
+    width:100%;
+    height:100px;
+    overflow:hidden;
+    opacity:.8;
+}
+
+.ecg svg{
+    width:200%;
+    height:100%;
+    animation:ecgMove 5s linear infinite;
+}
+
+.ecg path{
+    fill:none;
+    stroke:var(--cyan);
+    stroke-width:2;
+    filter:drop-shadow(0 0 7px var(--cyan));
+}
+
+@keyframes ecgMove{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    position:relative;
+    z-index:2;
+    padding:120px 7%;
+}
+
+.container{
+    width:min(1200px,100%);
+    margin:auto;
+}
+
+.section-label{
+    color:var(--cyan);
+    font-family:Rajdhani;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:Rajdhani;
+    font-size:clamp(38px,6vw,68px);
+    text-transform:uppercase;
+    line-height:1;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:var(--cyan);
+}
+
+/* ================= PROFILE ================= */
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+@media(max-width:750px){
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+.card{
+    background:linear-gradient(145deg,rgba(13,34,47,.8),rgba(5,15,23,.75));
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(84,231,255,.4);
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:var(--cyan);
+    opacity:.04;
+    filter:blur(60px);
+    top:-100px;
+    right:-100px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.info-row:last-child{
+    border-bottom:0;
+}
+
+.info-label{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.info-value{
+    text-align:right;
+    font-weight:700;
+    font-size:13px;
+}
+
+/* ================= REQUIREMENTS ================= */
+
+.requirements{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+@media(max-width:700px){
+    .requirements{
+        grid-template-columns:1fr;
+    }
+}
+
+.requirement{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:22px;
+    border:1px solid var(--line);
+    background:rgba(7,21,30,.65);
+    border-radius:17px;
+    transition:.3s;
+}
+
+.requirement:hover{
+    transform:translateX(7px);
+    border-color:rgba(66,229,162,.35);
+}
+
+.check{
+    flex-shrink:0;
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:rgba(66,229,162,.08);
+    border:1px solid rgba(66,229,162,.25);
+    color:var(--green);
+    font-weight:900;
+    box-shadow:0 0 20px rgba(66,229,162,.08);
+}
+
+.requirement strong{
+    font-size:14px;
+}
+
+.requirement small{
+    display:block;
+    color:var(--muted);
+    margin-top:4px;
+    font-size:11px;
+}
+
+/* ================= JOBS ================= */
+
+.jobs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+@media(max-width:750px){
+    .jobs{
+        grid-template-columns:1fr;
+    }
+}
+
+.job{
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:rgba(7,20,29,.7);
+    transition:.35s;
+}
+
+.job:hover{
+    transform:translateY(-5px);
+    background:rgba(10,29,40,.85);
+}
+
+.job-number{
+    font-family:Rajdhani;
+    color:var(--cyan);
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.job h3{
+    margin:12px 0 10px;
+    font-size:18px;
+}
+
+.job p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+}
+
+/* ================= BENEFITS ================= */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+@media(max-width:900px){
+    .benefits{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+    .benefits{
+        grid-template-columns:1fr;
+    }
+}
+
+.benefit{
+    text-align:center;
+    padding:30px 20px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:rgba(8,24,34,.65);
+}
+
+.benefit-icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.benefit strong{
+    display:block;
+    font-size:14px;
+}
+
+.benefit span{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:7px;
+}
+
+/* ================= REINSTATEMENT ================= */
+
+.timeline{
+    position:relative;
+    margin-top:30px;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(var(--cyan),var(--blue),transparent);
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:75px;
+    margin-bottom:30px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:16px;
+    top:6px;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:#06131c;
+    border:2px solid var(--cyan);
+    box-shadow:0 0 20px rgba(84,231,255,.35);
+}
+
+.timeline-item.active .timeline-dot{
+    background:var(--green);
+    border-color:var(--green);
+    box-shadow:0 0 25px rgba(66,229,162,.45);
+}
+
+.timeline-card{
+    padding:25px;
+    background:rgba(8,24,34,.7);
+    border:1px solid var(--line);
+    border-radius:18px;
+}
+
+.timeline-card h3{
+    font-family:Rajdhani;
+    font-size:23px;
+    margin-bottom:7px;
+}
+
+.timeline-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 10px;
+    margin-bottom:12px;
+    border-radius:8px;
+    background:rgba(84,231,255,.08);
+    color:var(--cyan);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+/* ================= PERSONAL HISTORY ================= */
+
+.history{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+@media(max-width:800px){
+    .history{
+        grid-template-columns:1fr;
+    }
+}
+
+.history-highlight{
+    border:1px solid rgba(255,78,112,.2);
+    background:linear-gradient(145deg,rgba(255,78,112,.05),rgba(7,20,29,.8));
+}
+
+.history-date{
+    color:var(--red);
+    font-family:Rajdhani;
+    font-size:35px;
+    font-weight:700;
+}
+
+.history p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:13px;
+    margin-top:15px;
+}
+
+.return-card{
+    border-color:rgba(66,229,162,.25);
+    background:linear-gradient(145deg,rgba(66,229,162,.06),rgba(7,20,29,.8));
+}
+
+.return-card h3{
+    color:var(--green);
+    font-family:Rajdhani;
+    font-size:29px;
+}
+
+/* ================= DOCUMENTS ================= */
+
+.documents{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+@media(max-width:750px){
+    .documents{
+        grid-template-columns:1fr;
+    }
+}
+
+.document{
+    min-height:270px;
+    border-radius:22px;
+    border:1px solid var(--line);
+    background:
+        linear-gradient(135deg,rgba(16,44,58,.85),rgba(5,15,23,.9));
+    padding:25px;
+    position:relative;
+    overflow:hidden;
+}
+
+.document:after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    border:1px solid rgba(84,231,255,.1);
+    right:-100px;
+    bottom:-100px;
+}
+
+.document-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.doc-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:rgba(84,231,255,.08);
+    border:1px solid rgba(84,231,255,.2);
+    display:grid;
+    place-items:center;
+    color:var(--cyan);
+    font-size:22px;
+}
+
+.verified{
+    color:var(--green);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.document h3{
+    font-family:Rajdhani;
+    font-size:27px;
+    margin-top:35px;
+}
+
+.document p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.fake-doc{
+    position:absolute;
+    bottom:22px;
+    right:25px;
+    left:25px;
+    height:42px;
+    display:flex;
+    gap:6px;
+    align-items:center;
+}
+
+.fake-line{
+    height:5px;
+    background:rgba(84,231,255,.12);
+    border-radius:10px;
+}
+
+.fake-line:nth-child(1){width:35%}
+.fake-line:nth-child(2){width:20%}
+.fake-line:nth-child(3){width:40%}
+
+/* ================= APPLICATION ================= */
+
+.application{
+    position:relative;
+    padding:45px;
+    border-radius:30px;
+    background:
+        linear-gradient(135deg,rgba(15,48,64,.78),rgba(5,15,23,.9));
+    border:1px solid rgba(84,231,255,.2);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.application:before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    border:1px solid rgba(84,231,255,.08);
+    top:-300px;
+    right:-100px;
+}
+
+.application h2{
+    font-family:Rajdhani;
+    font-size:45px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.application p{
+    color:#b5cbd5;
+    line-height:2;
+    font-size:14px;
+}
+
+.signature{
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid var(--line);
+}
+
+.signature-name{
+    font-family:Rajdhani;
+    color:var(--cyan);
+    font-size:30px;
+    font-weight:700;
+}
+
+.signature-info{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* ================= FINAL ================= */
+
+.final{
+    text-align:center;
+    min-height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.final-box{
+    max-width:850px;
+}
+
+.final h2{
+    font-family:Rajdhani;
+    font-size:clamp(50px,8vw,100px);
+    line-height:.9;
+    text-transform:uppercase;
+}
+
+.final h2 span{
+    color:var(--cyan);
+}
+
+.final p{
+    color:var(--muted);
+    margin:25px auto;
+    max-width:650px;
+    line-height:1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 7%;
+    border-top:1px solid var(--line);
+    text-align:center;
+    color:#526b78;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+/* ================= PARTICLES ================= */
+
+.particle{
+    position:fixed;
+    width:2px;
+    height:2px;
+    background:var(--cyan);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:1;
+    opacity:.5;
+    animation:particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    15%{opacity:.5}
+    85%{opacity:.5}
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(45px);
+    transition:1s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= CURSOR ================= */
+
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:1px solid var(--cyan);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
+    transition:.08s;
+    mix-blend-mode:screen;
+}
+
+.cursor-dot{
+    position:fixed;
+    width:4px;
+    height:4px;
+    background:var(--cyan);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:10001;
+    transform:translate(-50%,-50%);
+}
+
+@media(max-width:700px){
+    .cursor,
+    .cursor-dot{
+        display:none;
+    }
+
+    section{
+        padding:85px 6%;
+    }
+
+    .application{
+        padding:28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-circle"></div>
+    <div class="loader-heart">✚</div>
+    <div class="loader-text">LSMD APPLICATION SYSTEM</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">
+        <div class="logo-icon">✚</div>
+        <div>LOS SANTOS<br>MEDICAL DEPARTMENT</div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#profil">Profil</a>
+        <a href="#voraussetzungen">Voraussetzungen</a>
+        <a href="#aufgaben">Aufgaben</a>
+        <a href="#wiedereinstellung">Wiedereinstellung</a>
+        <a href="#bewerbung">Bewerbung</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Bewerbungsakte geöffnet
+            </div>
+
+            <h1>
+                Jeff
+                <span>Jeremain</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Bewerbung als <strong>Auszubildender</strong> beim
+                Los Santos Medical Department.
+                <br><br>
+                Erfahren. Motiviert. Bereit für den erneuten Dienst.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="btn btn-primary" href="#bewerbung">
+                    Bewerbung öffnen
+                </a>
+
+                <a class="btn btn-outline" href="#profil">
+                    Bewerberprofil
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="medical-core">
+
+            <div class="core-ring"></div>
+            <div class="core-ring"></div>
+            <div class="core-ring"></div>
+
+            <div class="core-center">
+                <div class="cross"></div>
+            </div>
+
+            <div class="ecg">
+                <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                    <path d="
+                    M0 55
+                    L120 55
+                    L140 55
+                    L155 20
+                    L175 85
+                    L195 55
+                    L310 55
+                    L330 55
+                    L350 30
+                    L370 80
+                    L390 55
+                    L510 55
+                    L530 55
+                    L550 15
+                    L570 90
+                    L590 55
+                    L720 55
+                    L740 55
+                    L760 25
+                    L780 82
+                    L800 55
+                    L930 55
+                    L950 55
+                    L970 18
+                    L990 88
+                    L1010 55
+                    L1200 55
+                    " />
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- PROFIL -->
+<section id="profil">
+
+<div class="container reveal">
+
+    <div class="section-label">01 / Bewerberakte</div>
+
+    <div class="section-title">
+        Persönliches <span>Profil</span>
+    </div>
+
+
+    <div class="profile-grid">
+
+        <div class="card">
+
+            <div class="info-row">
+                <span class="info-label">Vollständiger Name</span>
+                <span class="info-value">Jeff Jeremain</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Geburtsdatum</span>
+                <span class="info-value">14.02.1990</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Telefonnummer</span>
+                <span class="info-value">6029103965</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Visumsstufe</span>
+                <span class="info-value">27</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Anschrift</span>
+                <span class="info-value">Bridge Street, 2<br>7294</span>
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="section-label">Bewerbungsstatus</div>
+
+            <h3 style="font-family:Rajdhani;font-size:35px;margin:15px 0;">
+                VORAUSSETZUNGEN
+                <span style="color:var(--green)">ERFÜLLT</span>
+            </h3>
+
+            <p style="color:var(--muted);line-height:1.8;font-size:13px;">
+                Alle geforderten Voraussetzungen für eine Bewerbung
+                beim Los Santos Medical Department werden erfüllt.
+            </p>
+
+            <div style="
+                margin-top:25px;
+                height:8px;
+                background:rgba(255,255,255,.05);
+                border-radius:20px;
+                overflow:hidden;
+            ">
+                <div style="
+                    width:100%;
+                    height:100%;
+                    background:linear-gradient(90deg,var(--green),var(--cyan));
+                    box-shadow:0 0 20px var(--green);
+                "></div>
+            </div>
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                margin-top:10px;
+                color:var(--muted);
+                font-size:10px;
+            ">
+                <span>ANFORDERUNGEN</span>
+                <span style="color:var(--green)">100 %</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- VORAUSSETZUNGEN -->
+<section id="voraussetzungen">
+
+<div class="container reveal">
+
+    <div class="section-label">02 / Zugangskriterien</div>
+
+    <div class="section-title">
+        Voraussetzungen <span>erfüllt</span>
+    </div>
+
+    <div class="requirements">
+
+        <div class="requirement">
+            <div class="check">✓</div>
+            <div>
+                <strong>Mindestalter von 18 Jahren</strong>
+                <small>Geburtsdatum: 14.02.1990</small>
+            </div>
+        </div>
+
+        <div class="requirement">
+            <div class="check">✓</div>
+            <div>
+                <strong>Gültiger Personalausweis</strong>
+                <small>Nachweis vorhanden</small>
+            </div>
+        </div>
+
+        <div class="requirement">
+            <div class="check">✓</div>
+            <div>
+                <strong>PKW- & LKW-Führerschein</strong>
+                <small>Führerscheine vorhanden</small>
+            </div>
+        </div>
+
+        <div class="requirement">
+            <div class="check">✓</div>
+            <div>
+                <strong>Mindestens Visumsstufe 5</strong>
+                <small>Aktuelle Visumsstufe: 27</small>
+            </div>
+        </div>
+
+        <div class="requirement">
+            <div class="check">✓</div>
+            <div>
+                <strong>Mindestens 2 Wochen straffrei</strong>
+                <small>Voraussetzung erfüllt</small>
+            </div>
+        </div>
+
+        <div class="requirement">
+            <div class="check">✓</div>
+            <div>
+                <strong>Bewerbungsschreiben</strong>
+                <small>Diese Bewerbungsakte</small>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- AUFGABEN -->
+<section id="aufgaben">
+
+<div class="container reveal">
+
+    <div class="section-label">03 / Tätigkeitsprofil</div>
+
+    <div class="section-title">
+        Meine zukünftigen <span>Aufgaben</span>
+    </div>
+
+    <div class="jobs">
+
+        <div class="job">
+            <div class="job-number">MED / 01</div>
+            <h3>Medizinische Versorgung</h3>
+            <p>
+                Medizinische Betreuung und Versorgung von Patienten
+                sowie professionelles Handeln in medizinischen Situationen.
+            </p>
+        </div>
+
+        <div class="job">
+            <div class="job-number">EMS / 02</div>
+            <h3>Rettungswageneinsätze</h3>
+            <p>
+                Einsätze als Fahrer eines Rettungswagens und
+                sichere Durchführung von Einsatzfahrten.
+            </p>
+        </div>
+
+        <div class="job">
+            <div class="job-number">SAR / 03</div>
+            <h3>Search & Rescue</h3>
+            <p>
+                Unterstützung und Durchführung von Einsätzen
+                innerhalb der Search & Rescue-Abteilung.
+            </p>
+        </div>
+
+        <div class="job">
+            <div class="job-number">TEAM / 04</div>
+            <h3>Abteilungsübergreifende Arbeit</h3>
+            <p>
+                Zusammenarbeit mit anderen Abteilungen,
+                Einsatzkräften und Kollegen.
+            </p>
+        </div>
+
+        <div class="job">
+            <div class="job-number">EVENT / 05</div>
+            <h3>Teamevents</h3>
+            <p>
+                Teilnahme an gemeinsamen Aktivitäten und
+                Stärkung des Teamzusammenhalts.
+            </p>
+        </div>
+
+        <div class="job">
+            <div class="job-number">CAREER / 06</div>
+            <h3>Weiterentwicklung</h3>
+            <p>
+                Bereitschaft, Verantwortung zu übernehmen,
+                Wissen auszubauen und mich weiterzuentwickeln.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- BENEFITS -->
+<section>
+
+<div class="container reveal">
+
+    <div class="section-label">04 / Das Department</div>
+
+    <div class="section-title">
+        Das bietet <span>LSMD</span>
+    </div>
+
+    <div class="benefits">
+
+        <div class="benefit">
+            <div class="benefit-icon">💵</div>
+            <strong>15.000 $</strong>
+            <span>Einstiegsgehalt / 30 Minuten</span>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🤝</div>
+            <strong>Familiäres Team</strong>
+            <span>Hilfsbereitschaft & Zusammenhalt</span>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🚑</div>
+            <strong>Großer Fuhrpark</strong>
+            <span>Vielseitige Einsatzmöglichkeiten</span>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">📈</div>
+            <strong>Karriere</strong>
+            <span>Entwicklungsmöglichkeiten</span>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- WIEDEREINSTELLUNG -->
+<section id="wiedereinstellung">
+
+<div class="container reveal">
+
+    <div class="section-label">05 / Personalhistorie</div>
+
+    <div class="section-title">
+        Wiedereinstellung <span>Medical Department</span>
+    </div>
+
+
+    <div class="history">
+
+        <div class="card history-highlight">
+
+            <div class="section-label" style="color:var(--red)">
+                Letzte Tätigkeit
+            </div>
+
+            <div class="history-date">
+                26.05.2026
+            </div>
+
+            <h3 style="margin-top:10px;">
+                Beendigung des Dienstverhältnisses
+            </h3>
+
+            <p>
+                Meine damalige Kündigung erfolgte am
+                <strong style="color:#fff;">26.05.2026</strong>
+                durch Frau <strong style="color:#fff;">Eva Remi</strong>,
+                die ehemalige 01 der Klinik.
+            </p>
+
+        </div>
+
+
+        <div class="card return-card">
+
+            <div class="section-label" style="color:var(--green)">
+                Wiedereinstellungsregelung
+            </div>
+
+            <h3>
+                Bereits Medical Department Erfahrung
+            </h3>
+
+            <p>
+                Ich war bereits als MDler tätig und kenne die
+                grundlegenden Abläufe, Aufgabenbereiche und
+                Anforderungen des Medical Departments.
+            </p>
+
+            <p>
+                Dadurch bringe ich bereits praktische Erfahrung
+                mit und kann mich schnell wieder in die bestehenden
+                Strukturen integrieren.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item active">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <span class="badge">WENIGER ALS 3 MONATE</span>
+
+                <h3>Früheren Rang zurückerhalten</h3>
+
+                <p>
+                    Bei einer Kündigung von weniger als drei Monaten
+                    wird der frühere Rang nach sechs Stunden Dienstzeit
+                    in der Mainhall zurückgegeben.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <span class="badge">3 BIS 6 MONATE</span>
+
+                <h3>Rückkehr + Auffrischungskurs</h3>
+
+                <p>
+                    Nach sechs Stunden Dienstzeit in der Mainhall
+                    und erfolgreicher Teilnahme an einem
+                    Auffrischungskurs wird der frühere Rang
+                    zurückgegeben.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <span class="badge">LÄNGER ALS 6 MONATE</span>
+
+                <h3>Regulärer Neustart</h3>
+
+                <p>
+                    Nach mehr als sechs Monaten beginnt die
+                    Wiedereinstellung regulär neu.
+                    Bereits erworbene akademische Grade,
+                    beispielsweise Doktor- oder Professorentitel,
+                    bleiben bestehen.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- NACHWEISE -->
+<section>
+
+<div class="container reveal">
+
+    <div class="section-label">06 / Dokumentenprüfung</div>
+
+    <div class="section-title">
+        Persönliche <span>Nachweise</span>
+    </div>
+
+
+    <div class="documents">
+
+        <div class="document">
+
+            <div class="document-top">
+                <div class="doc-icon">▣</div>
+                <div class="verified">✓ NACHWEIS VORHANDEN</div>
+            </div>
+
+            <h3>Personalausweis</h3>
+
+            <p>
+                Gültiger persönlicher Identitätsnachweis.
+                Das Original wird bei Bedarf zur Prüfung vorgelegt.
+            </p>
+
+            <div class="fake-doc">
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+            </div>
+
+        </div>
+
+
+        <div class="document">
+
+            <div class="document-top">
+                <div class="doc-icon">▤</div>
+                <div class="verified">✓ NACHWEIS VORHANDEN</div>
+            </div>
+
+            <h3>Führerscheine</h3>
+
+            <p>
+                PKW- und LKW-Führerscheine vorhanden.
+                Die entsprechenden Nachweise können bei Bedarf
+                zur Prüfung vorgelegt werden.
+            </p>
+
+            <div class="fake-doc">
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- BEWERBUNG -->
+<section id="bewerbung">
+
+<div class="container reveal">
+
+    <div class="section-label">07 / Persönliches Anschreiben</div>
+
+    <div class="application">
+
+        <h2>
+            Meine <span>Bewerbung</span>
+        </h2>
+
+        <p>
+            Sehr geehrtes Los Santos Medical Department Team,
+        </p>
+
+        <br>
+
+        <p>
+            hiermit möchte ich mich erneut für eine Tätigkeit im
+            Los Santos Medical Department bewerben und mein Interesse
+            an der Position als Auszubildender bekunden.
+        </p>
+
+        <br>
+
+        <p>
+            Ich erfülle sämtliche Voraussetzungen für eine Bewerbung
+            und bringe durch meine bereits vergangene Tätigkeit im
+            Medical Department einen wichtigen Erfahrungsvorsprung mit.
+            Die Aufgabenbereiche, grundlegenden Abläufe und die
+            Verantwortung, die mit dem Dienst beim Medical Department
+            verbunden sind, sind mir bereits bekannt.
+        </p>
+
+        <br>
+
+        <p>
+            Besonders wichtig ist mir ein professionelles Auftreten,
+            zuverlässige Zusammenarbeit innerhalb des Teams und ein
+            verantwortungsvoller Umgang mit Patienten und Kollegen.
+            Ich bin bereit, mich erneut vollständig in den Dienstbetrieb
+            einzubringen und mein vorhandenes Wissen wieder auf den
+            aktuellen Stand zu bringen.
+        </p>
+
+        <br>
+
+        <p>
+            Meine damalige Tätigkeit endete am 26.05.2026 durch eine
+            Kündigung seitens Frau Eva Remi, der damaligen 01 der Klinik.
+            Trotz dieser vergangenen Personalentscheidung möchte ich
+            mich bewusst erneut für das Medical Department bewerben,
+            da ich meine berufliche Laufbahn innerhalb des MD gerne
+            fortsetzen und meine bereits gesammelten Erfahrungen erneut
+            einbringen möchte.
+        </p>
+
+        <br>
+
+        <p>
+            Ich würde mich über die Möglichkeit freuen, mich persönlich
+            vorstellen zu dürfen und Ihnen zu zeigen, dass ich motiviert,
+            zuverlässig und bereit bin, erneut Verantwortung innerhalb
+            des Los Santos Medical Departments zu übernehmen.
+        </p>
+
+        <div class="signature">
+
+            <div class="signature-name">
+                Jeff Jeremain
+            </div>
+
+            <div class="signature-info">
+                Bewerber · Los Santos Medical Department
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+<section class="final">
+
+<div class="final-box reveal">
+
+    <div class="section-label">
+        Bewerbungsakte · LSMD
+    </div>
+
+    <h2>
+        Bereit für den<br>
+        <span>erneuten Dienst.</span>
+    </h2>
+
+    <p>
+        Erfahrung aus dem Medical Department trifft auf neue
+        Motivation. Ich bin bereit, wieder Teil des Teams zu werden.
+    </p>
+
+    <a href="#profil" class="btn btn-primary">
+        Bewerberakte erneut öffnen
+    </a>
+
+</div>
+
+</section>
+
+
+<footer>
+    LOS SANTOS MEDICAL DEPARTMENT · BEWERBUNG VON JEFF JEREMAIN · 2026
+</footer>
+
+
+<script>
+
+/* ================= LOADER ================= */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+        document.getElementById("loader").classList.add("hide");
+    },1000);
+
+});
+
+
+/* ================= PARTICLES ================= */
+
+const particleContainer=document.getElementById("particles");
+
+for(let i=0;i<70;i++){
+
+    const particle=document.createElement("div");
+
+    particle.className="particle";
+
+    particle.style.left=Math.random()*100+"%";
+    particle.style.animationDuration=(5+Math.random()*12)+"s";
+    particle.style.animationDelay=(-Math.random()*15)+"s";
+    particle.style.opacity=(.15+Math.random()*.5);
+
+    particleContainer.appendChild(particle);
+
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer=new IntersectionObserver(
+    entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold:.12
+    }
+);
+
+document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+});
+
+
+/* ================= CUSTOM CURSOR ================= */
+
+const cursor=document.getElementById("cursor");
+const cursorDot=document.getElementById("cursorDot");
+
+document.addEventListener("mousemove",e=>{
+
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
+
+    cursorDot.style.left=e.clientX+"px";
+    cursorDot.style.top=e.clientY+"px";
+
+});
+
+
+/* ================= MOUSE PARALLAX ================= */
+
+const core=document.querySelector(".medical-core");
+
+document.addEventListener("mousemove",e=>{
+
+    if(!core) return;
+
+    const x=(window.innerWidth/2-e.clientX)/70;
+    const y=(window.innerHeight/2-e.clientY)/70;
+
+    core.style.transform=
+        `translate(${x}px,${y}px)`;
+
+});
+
+
+/* ================= NAV HIGHLIGHT ================= */
+
+const sections=document.querySelectorAll("section[id]");
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+
+        const top=section.offsetTop-150;
+
+        if(window.scrollY>=top){
+            current=section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.style.color="";
+
+        if(link.getAttribute("href")==="#"+current){
+            link.style.color="var(--cyan)";
+        }
+
+    });
+
+});
+
+
+/* ================= CARD TILT ================= */
+
+document.querySelectorAll(".card,.job,.document,.benefit").forEach(card=>{
+
+    card.addEventListener("mousemove",e=>{
+
+        const rect=card.getBoundingClientRect();
+
+        const x=e.clientX-rect.left;
+        const y=e.clientY-rect.top;
+
+        const rotateX=((y/rect.height)-.5)*-4;
+        const rotateY=((x/rect.width)-.5)*4;
+
+        card.style.transform=
+            `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="";
+
+    });
+
+});
+
+
+/* ================= SMOOTH BUTTON FEEDBACK ================= */
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        btn.style.transform="scale(.96)";
+
+        setTimeout(()=>{
+            btn.style.transform="";
+        },150);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
